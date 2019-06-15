@@ -1,0 +1,12 @@
+:host {
+  border-left: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  background: linear-gradient(to right, #FFFF, #FFFF 47px, rgba(78, 53, 55, 0.13) 47px, rgba(78, 53, 55, 0.13) 48px, #FFF 48px, #FFFF 100%), url('/assets/images/pattern.jpg') repeat top left
+}
+
+.heading {
+  padding-left: 47px;
+  border-bottom: 1px solid rgba(78, 53, 55, 0.13);
+}

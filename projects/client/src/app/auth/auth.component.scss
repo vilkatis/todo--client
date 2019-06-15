@@ -1,0 +1,21 @@
+:host {
+  width: 300px;
+  margin: auto;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #1A1A1D;
+  color: #FFF;
+  text-align: center;
+}
+h1 {
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: 100;
+  letter-spacing: -0.045em;
+  color: #FFF;
+  user-select: none;
+  span {
+    color: #CCC;
+  }
+}

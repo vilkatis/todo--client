@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+}
+
+section {
+  display: flex;
+  flex:1 0 0;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: center;
+}
+
+a {
+  color: #5ea6ff;
+}

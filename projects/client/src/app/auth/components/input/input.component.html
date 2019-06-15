@@ -1,0 +1,6 @@
+<ng-container [formGroup]="parentFormGroup">
+  <input title="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{name}}" [formControlName]="controlName">
+  <label [attr.for]="name">
+    <svg class="icon"><use [attr.xlink:href]="'#' + icon"></use></svg>
+  </label>
+</ng-container>

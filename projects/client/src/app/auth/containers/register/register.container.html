@@ -1,0 +1,9 @@
+<section>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <app-input name="Username" icon="icon_user" controlName="username" [parentFormGroup]="formGroup"></app-input>
+    <app-input name="Password" type="password" icon="icon_lock" controlName="password" [parentFormGroup]="formGroup"></app-input>
+    <app-input name="Confirm password" type="password" icon="icon_lock" controlName="confirmPassword" [parentFormGroup]="formGroup"></app-input>
+    <button name="Register" type="submit">Register</button>
+  </form>
+</section>
+<p>Already have an account? <a routerLink="/auth/login">Login Here</a></p>

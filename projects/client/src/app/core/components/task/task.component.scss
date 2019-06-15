@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex: 0 0 30px;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(78, 53, 55, 0.13);
+}
+.task-checkbox {
+  width: 47px;
+  display: flex;
+  input {
+  margin: auto;
+  }
+}
+.task-body {
+  display: flex;
+  flex: 1 0 0;
+  justify-content: space-between;
+  align-items: center;
+}

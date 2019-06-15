@@ -1,0 +1,4 @@
+<ng-container *ngFor="let list of lists">
+  <app-list-menu-item [name]="list.name" [count]="list.taskCount" [isActive]="selectedId === list.id"></app-list-menu-item>
+</ng-container>
+<button (click)="handleClick()">+ Add list</button>

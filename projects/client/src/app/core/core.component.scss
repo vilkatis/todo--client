@@ -1,0 +1,65 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+}
+
+.container {
+  max-width: 565px;
+  max-height: 517px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+header {
+  height: 50px;
+  background: linear-gradient(to bottom, #ededed, #b9b9b9);
+  color: #2c2f32;
+  font-size: 14px;
+  padding: 0 12px;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 1px 1px 0 rgba( 0, 0, 0, 0.48);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.52);
+}
+
+section {
+  display: flex;
+  flex: 1 0 0;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  width: 36%;
+  max-width: 200px;
+  position: relative;
+}
+aside:after {
+  content: "";
+  background: url('/assets/images/aside-background.jpg') no-repeat top center;
+  background-size: cover;
+  opacity: 0.92;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -100;
+}
+
+.account {
+  display: flex;
+  flex: 0 0 132px;
+  padding: 0 20px;
+}
+
