@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IList } from '../../../models/interfaces';
+import { IList } from '../../../models';
 
 @Component({
   selector: 'app-list-menu',

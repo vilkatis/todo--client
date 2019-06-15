@@ -1,7 +1,6 @@
-import { IAuthState } from '../models';
+import { IAuthState, IUser } from '../../models';
 import { AuthActions } from '../actions';
 import { Selector } from '@ngrx/store';
-import { IUser } from '../../models';
 
 const initialState: IAuthState = {
   isAuthenticated: false,

@@ -1,4 +1,4 @@
-import { IUser } from '../../models';
+import { IUser } from '../index';
 
 export interface IAuthState {
   isAuthenticated: boolean;

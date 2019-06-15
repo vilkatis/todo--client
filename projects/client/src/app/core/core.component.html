@@ -7,6 +7,6 @@
       <div class="account">Acc</div>
       <app-list-menu [lists]="lists$ | async" [selectedId]="listsSelectedId$ | async"></app-list-menu>
     </aside>
-    <app-list></app-list>
+    <app-list [tasks]="tasks$ | async" [selectedListId]="listsSelectedId$ | async"></app-list>
   </section>
 </div>
