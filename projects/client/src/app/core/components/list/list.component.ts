@@ -9,5 +9,4 @@ import { ITask } from '../../../models';
 
 export class ListComponent {
   @Input() tasks: ITask[];
-  @Input() selectedListId: string;
 }

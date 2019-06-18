@@ -14,12 +14,12 @@ import { shareReplay } from 'rxjs/operators';
 
 export class CoreComponent {
   lists$: Observable<IList[]>;
-  listsSelectedId$: Observable<string>;
   tasks$: Observable<ITask[]>;
+  todoSelectedId$: Observable<string>;
 
   constructor(store: Store<IState>) {
-    this.lists$ = store.pipe(select(fromStore.getListEntitiesOrderedArray));
-    this.listsSelectedId$ = store.pipe(select(fromStore.getListsSelectedId), shareReplay());
-    this.tasks$ = store.pipe(select(fromStore.getTaskEntitiesOrderedArray));
+    this.lists$ = store.pipe(select(fromStore.getTodoEntitiesOrderedArray));
+    this.tasks$ = store.pipe(select(fromStore.getTodoSelectedTasks));
+    this.todoSelectedId$ = store.pipe(select(fromStore.getTodoSelectedId));
   }
 }

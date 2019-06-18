@@ -1,9 +1,7 @@
 import * as AuthActions from './auth.actions';
-import * as ListsActions from './lists.actions';
-import * as TasksActions from './tasks.actions';
+import * as TodoActions from './todo.actions';
 
 export {
   AuthActions,
-  ListsActions,
-  TasksActions
+  TodoActions,
 };

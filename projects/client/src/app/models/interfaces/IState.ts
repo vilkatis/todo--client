@@ -1,9 +1,7 @@
 import { IAuthState } from './IAuthState';
-import { IListsState } from './IListsState';
-import { ITasksState } from './ITasksState';
+import { ITodoState } from './ITodoState';
 
 export interface IState {
   auth: IAuthState;
-  lists: IListsState;
-  tasks: ITasksState;
+  todo: ITodoState;
 }

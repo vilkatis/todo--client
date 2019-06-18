@@ -1,5 +1,7 @@
+import { ITask } from './ITask';
+
 export interface IList {
   id: string;
   name: string;
-  taskCount: number;
+  tasks: Record<string, ITask>;
 }
