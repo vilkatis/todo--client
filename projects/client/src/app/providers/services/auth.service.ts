@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 @Injectable({providedIn: 'root'})
 export class AuthService {
   private currentUserSubject: BehaviorSubject<any>;
+  private apiUrl: string = `${environment.apiUrl}/auth`;
 
   constructor(private http: HttpClient, private storageService: StorageService, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(storageService.get('currentUser')));
@@ -21,7 +22,7 @@ export class AuthService {
 
 
   login(username: string, password: string): Observable<IUser> {
-    return this.http.post<IUser>(`${environment.apiUrl}/login`, {username, password}).pipe(
+    return this.http.post<IUser>(`${this.apiUrl}/login`, {username, password}).pipe(
       tap((user: IUser) => {
         this.storageService.set('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
@@ -31,7 +32,7 @@ export class AuthService {
   }
 
   register(username: string, password: string): Observable<IUser> {
-    return this.http.post<IUser>(`${environment.apiUrl}/register`, {username, password}).pipe(
+    return this.http.post<IUser>(`${this.apiUrl}/register`, {username, password}).pipe(
       tap((user: IUser) => {
         this.storageService.set('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
