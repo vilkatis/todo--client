@@ -26,6 +26,14 @@ export class EventHandlerService {
             break;
         }
         break;
+      case 'todo':
+        switch ($event.action.type) {
+          case 'select':
+            this.store.dispatch(new fromStore.TodoActions.SelectList($event.action.payload));
+            break;
+          default:
+            break;
+        }
       default:
         break;
     }

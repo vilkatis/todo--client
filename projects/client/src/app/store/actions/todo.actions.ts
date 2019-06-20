@@ -8,9 +8,7 @@ export enum ActionTypes {
   ADD_NEW_LIST_REQUEST = '[Lists] Add new list request',
   ADD_NEW_LIST_SUCCESS = '[Lists] Add new list success',
   ADD_NEW_LIST_FAILURE = '[Lists] Add new list failure',
-  SELECT_LIST_REQUEST = '[Lists] Select list request',
-  SELECT_LIST_SUCCESS = '[Lists] Select list success',
-  SELECT_LIST_FAILURE = '[Lists] Select list failure',
+  SELECT_LIST = '[Lists] Select list',
 }
 
 export class GetAllListsRequest implements Action {
@@ -52,24 +50,10 @@ export class AddNewListFailure implements Action {
   }
 }
 
-export class SelectListRequest implements Action {
-  readonly type = ActionTypes.SELECT_LIST_REQUEST;
+export class SelectList implements Action {
+  readonly type = ActionTypes.SELECT_LIST;
 
   constructor(public payload: string) {
-  }
-}
-
-export class SelectListSuccess implements Action {
-  readonly type = ActionTypes.SELECT_LIST_SUCCESS;
-
-  constructor(public payload: string) {
-  }
-}
-
-export class SelectListFailure implements Action {
-  readonly type = ActionTypes.SELECT_LIST_FAILURE;
-
-  constructor(public payload: Error) {
   }
 }
 
@@ -80,6 +64,4 @@ export type Actions =
   | AddNewListRequest
   | AddNewListSuccess
   | AddNewListFailure
-  | SelectListRequest
-  | SelectListSuccess
-  | SelectListFailure;
+  | SelectList;

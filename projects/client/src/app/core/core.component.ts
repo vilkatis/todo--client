@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import * as fromStore from '../store';
 import { shareReplay } from 'rxjs/operators';
+import { AbstractContainer } from '../helpers';
+import { EventHandlerService } from '../providers/services';
 
 
 @Component({
@@ -12,12 +14,13 @@ import { shareReplay } from 'rxjs/operators';
   styleUrls: ['core.component.scss']
 })
 
-export class CoreComponent {
+export class CoreComponent extends AbstractContainer {
   lists$: Observable<IList[]>;
   tasks$: Observable<ITask[]>;
   todoSelectedId$: Observable<string>;
 
-  constructor(store: Store<IState>) {
+  constructor(eventHandlerService: EventHandlerService, store: Store<IState>) {
+    super(eventHandlerService);
     this.lists$ = store.pipe(select(fromStore.getTodoEntitiesOrderedArray));
     this.tasks$ = store.pipe(select(fromStore.getTodoSelectedTasks));
     this.todoSelectedId$ = store.pipe(select(fromStore.getTodoSelectedId));
