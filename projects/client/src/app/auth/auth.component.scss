@@ -1,9 +1,10 @@
 :host {
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   margin: auto;
   border-radius: 5px;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 1vw;
   background: #1A1A1D;
   color: #FFF;
   text-align: center;

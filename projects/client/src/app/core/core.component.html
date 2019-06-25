@@ -4,9 +4,11 @@
   </header>
   <section>
     <aside>
-      <div class="account">Acc</div>
-      <app-list-menu (fireEvent)="handleEvent($event)" [lists]="lists$ | async" [selectedId]="todoSelectedId$ | async"></app-list-menu>
+      <app-account></app-account>
+        <app-list-menu (fireEvent)="handleEvent($event)" [lists]="lists$ | async"
+                       [selectedId]="todoSelectedListId$ | async"></app-list-menu>
     </aside>
-    <app-list [tasks]="tasks$ | async"></app-list>
+    <app-list (fireEvent)="handleEvent($event)" [tasks]="tasks$ | async" [listId]="todoSelectedListId$ | async"
+              [listName]="todoSelectedListName$ | async"></app-list>
   </section>
 </div>

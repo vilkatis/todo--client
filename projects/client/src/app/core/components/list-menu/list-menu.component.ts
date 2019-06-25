@@ -11,15 +11,30 @@ export class ListMenuComponent extends AbstractComponent {
   @Input() lists: IList[];
   @Input() selectedId: string;
 
-  public handleClick(): void {
-    this.fireEvent.emit(
-      {
-        type: 'todo',
-        action: {
-          type: 'select',
-          payload: this.selectedId
-        }
+  handleSelectClick(listId: string) {
+    this.fireEvent.emit({
+      type: 'list',
+      action: {
+        type: 'select',
+        payload: listId
       }
-    );
+    });
+  }
+
+  handleAddListClick(): void {
+    const listName: string = prompt('Please write the list name.');
+    if (listName) {
+      this.fireEvent.emit({
+        type: 'list',
+        action: {
+          type: 'add',
+          payload: listName
+        }
+      });
+    }
+  }
+
+  trackByFn(index, item) {
+    return item.id;
   }
 }

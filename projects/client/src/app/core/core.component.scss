@@ -18,13 +18,13 @@
 }
 
 header {
-  height: 50px;
   background: linear-gradient(to bottom, #ededed, #b9b9b9);
   color: #2c2f32;
   font-size: 14px;
   padding: 0 12px;
   user-select: none;
   display: flex;
+  flex: 0 0 50px;
   justify-content: center;
   flex-direction: column;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 1px 1px 0 rgba( 0, 0, 0, 0.48);
@@ -34,14 +34,15 @@ header {
 section {
   display: flex;
   flex: 1 0 0;
+  overflow: hidden;
 }
 
 aside {
   display: flex;
   flex-direction: column;
-  flex: 1 0 0;
-  width: 36%;
+  flex: 0 0 36%;
   max-width: 200px;
+  min-width: 100px;
   position: relative;
 }
 aside:after {
@@ -57,9 +58,4 @@ aside:after {
   z-index: -100;
 }
 
-.account {
-  display: flex;
-  flex: 0 0 132px;
-  padding: 0 20px;
-}
 

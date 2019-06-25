@@ -1,6 +1,15 @@
-<div class="heading">
-  Shopping List
-</div>
-<ng-container *ngFor="let task of tasks">
-  <app-task [task]="task"></app-task>
+<ng-container *ngIf="listId">
+  <div class="heading">
+    <div class="heading-container">
+      <div class="title">{{listName}}</div>
+      <div class="actions">
+        <span (click)="handleAddTask()">+ Add task</span>
+        <span (click)="handleRemoveCompleted()" [class.disabled]="tasks.length === 0">Remove completed</span>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let task of tasks; trackBy: trackByFn">
+    <app-task (fireEvent)="catchEvent($event)" [task]="task" [listId]="listId"></app-task>
+  </ng-container>
+
 </ng-container>

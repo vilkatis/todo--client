@@ -1,4 +1,6 @@
-<ng-container *ngFor="let list of lists">
-  <app-list-menu-item [name]="list.name" [count]="list.taskCount" [isActive]="selectedId === list.id"></app-list-menu-item>
-</ng-container>
-<button (click)="handleClick()">+ Add list</button>
+<div class="list-item-scroller">
+  <ng-container *ngFor="let list of lists; trackBy: trackByFn">
+    <app-list-menu-item (click)="handleSelectClick(list.id)" [name]="list.name" [count]="list.count ? list.count : 0" [isActive]="selectedId === list.id"></app-list-menu-item>
+  </ng-container>
+</div>
+<div class="list-add-new" (click)="handleAddListClick()">+ Add list</div>

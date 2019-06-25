@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex: 0 0 132px;
+  padding: 20px 20px 25px;
+  background: linear-gradient(160deg, rgba(14,115,203,0.22) 0%, rgba(179,179,179,0.22) 100%);
+  flex-direction: column;
+}
+
+.user-name {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #068dff;
+}
+
+.user-image {
+  border-radius: 3px;
+  overflow: hidden;
+}

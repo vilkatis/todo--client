@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<any>;
+  private currentUserSubject: BehaviorSubject<IUser>;
   private apiUrl: string = `${environment.apiUrl}/auth`;
 
   constructor(private http: HttpClient, private storageService: StorageService, private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(storageService.get('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<IUser>(JSON.parse(storageService.get('currentUser')));
   }
 
-  public get currentUser(): any {
+  public get currentUser(): IUser {
     return this.currentUserSubject.value;
   }
 

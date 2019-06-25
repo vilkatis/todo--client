@@ -1,5 +1,10 @@
-<div class="task-checkbox"><input type="checkbox" value="{{task.isCompleted}}"></div>
+<div class="task-checkbox">
+  <div class="checkbox">
+    <input [id]="task.id" type="checkbox" [formControl]="taskIsCompletedControl">
+    <label [attr.for]="task.id"></label>
+  </div>
+</div>
 <div class="task-body">
-  <span>{{task.name}}</span>
-  <div>Trash</div>
+  <input type="text" [formControl]="taskNameControl">
+  <img (click)="handleClickTrash()" src="/assets/images/trash.png"/>
 </div>

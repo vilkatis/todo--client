@@ -1,14 +1,26 @@
 import { Action } from '@ngrx/store';
-import { IList } from '../../models';
+import { IList, ITask } from '../../models';
 
 export enum ActionTypes {
-  GET_ALL_LISTS_REQUEST = '[Lists] Get all lists request',
-  GET_ALL_LISTS_SUCCESS = '[Lists] Get all lists success',
-  GET_ALL_LISTS_FAILURE = '[Lists] Get all lists failure',
-  ADD_NEW_LIST_REQUEST = '[Lists] Add new list request',
-  ADD_NEW_LIST_SUCCESS = '[Lists] Add new list success',
-  ADD_NEW_LIST_FAILURE = '[Lists] Add new list failure',
-  SELECT_LIST = '[Lists] Select list',
+  GET_ALL_LISTS_REQUEST = '[Todo] Get all lists request',
+  GET_ALL_LISTS_SUCCESS = '[Todo] Get all lists success',
+  GET_ALL_LISTS_FAILURE = '[Todo] Get all lists failure',
+  ADD_NEW_LIST_REQUEST = '[Todo] Add new list request',
+  ADD_NEW_LIST_SUCCESS = '[Todo] Add new list success',
+  ADD_NEW_LIST_FAILURE = '[Todo] Add new list failure',
+  SELECT_LIST = '[Todo] Select list',
+  ADD_TASK_REQUEST = '[Todo] Add task request',
+  ADD_TASK_SUCCESS = '[Todo] Add task success',
+  ADD_TASK_FAILURE = '[Todo] Add task failure',
+  UPDATE_TASK_REQUEST = '[Todo] Update task request',
+  UPDATE_TASK_SUCCESS = '[Todo] Update task success',
+  UPDATE_TASK_FAILURE = '[Todo] Update task failure',
+  DELETE_TASK_REQUEST = '[Todo] Delete task request',
+  DELETE_TASK_SUCCESS = '[Todo] Delete task success',
+  DELETE_TASK_FAILURE = '[Todo] Delete task failure',
+  REMOVE_COMPLETED_TASKS_REQUEST = '[Todo] Remove completed tasks request',
+  REMOVE_COMPLETED_TASKS_SUCCESS = '[Todo] Remove completed tasks success',
+  REMOVE_COMPLETED_TASKS_FAILURE = '[Todo] Remove completed tasks failure',
 }
 
 export class GetAllListsRequest implements Action {
@@ -32,7 +44,7 @@ export class GetAllListsFailure implements Action {
 export class AddNewListRequest implements Action {
   readonly type = ActionTypes.ADD_NEW_LIST_REQUEST;
 
-  constructor(public payload: Pick<IList, 'name'>) {
+  constructor(public payload: string) {
   }
 }
 
@@ -57,6 +69,90 @@ export class SelectList implements Action {
   }
 }
 
+export class AddTaskRequest implements Action {
+  readonly type = ActionTypes.ADD_TASK_REQUEST;
+
+  constructor(public payload: {listId: string, taskName: string}) {
+  }
+}
+
+export class AddTaskSuccess implements Action {
+  readonly type = ActionTypes.ADD_TASK_SUCCESS;
+
+  constructor(public payload: {listId: string, task: ITask}) {
+  }
+}
+
+export class AddTaskFailure implements Action {
+  readonly type = ActionTypes.ADD_TASK_FAILURE;
+
+  constructor(public payload: Error) {
+  }
+}
+
+export class UpdateTaskRequest implements Action {
+  readonly type = ActionTypes.UPDATE_TASK_REQUEST;
+
+  constructor(public payload: {listId: string, task: ITask}) {
+  }
+}
+
+export class UpdateTaskSuccess implements Action {
+  readonly type = ActionTypes.UPDATE_TASK_SUCCESS;
+
+  constructor(public payload: {listId: string, task: ITask}) {
+  }
+}
+
+export class UpdateTaskFailure implements Action {
+  readonly type = ActionTypes.UPDATE_TASK_FAILURE;
+
+  constructor(public payload: Error) {
+  }
+}
+
+export class DeleteTaskRequest implements Action {
+  readonly type = ActionTypes.DELETE_TASK_REQUEST;
+
+  constructor(public payload: {listId: string, taskId: string}) {
+  }
+}
+
+export class DeleteTaskSuccess implements Action {
+  readonly type = ActionTypes.DELETE_TASK_SUCCESS;
+
+  constructor(public payload: {listId: string, taskId: string}) {
+  }
+}
+
+export class DeleteTaskFailure implements Action {
+  readonly type = ActionTypes.DELETE_TASK_FAILURE;
+
+  constructor(public payload: Error) {
+  }
+}
+
+export class RemoveCompletedTasksRequest implements Action {
+  readonly type = ActionTypes.REMOVE_COMPLETED_TASKS_REQUEST;
+
+  constructor(public payload: string) {
+  }
+}
+
+export class RemoveCompletedTasksSuccess implements Action {
+  readonly type = ActionTypes.REMOVE_COMPLETED_TASKS_SUCCESS;
+
+  constructor(public payload: {listId: string, taskIds: string[]}) {
+  }
+}
+
+export class RemoveCompletedTasksFailure implements Action {
+  readonly type = ActionTypes.REMOVE_COMPLETED_TASKS_FAILURE;
+
+  constructor(public payload: Error) {
+  }
+}
+
 export type Actions =
   | GetAllListsRequest
   | GetAllListsSuccess
@@ -64,4 +160,16 @@ export type Actions =
   | AddNewListRequest
   | AddNewListSuccess
   | AddNewListFailure
-  | SelectList;
+  | SelectList
+  | AddTaskRequest
+  | AddTaskSuccess
+  | AddTaskFailure
+  | UpdateTaskRequest
+  | UpdateTaskSuccess
+  | UpdateTaskFailure
+  | DeleteTaskRequest
+  | DeleteTaskSuccess
+  | DeleteTaskFailure
+  | RemoveCompletedTasksRequest
+  | RemoveCompletedTasksSuccess
+  | RemoveCompletedTasksFailure;

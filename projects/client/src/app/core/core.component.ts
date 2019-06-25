@@ -17,12 +17,14 @@ import { EventHandlerService } from '../providers/services';
 export class CoreComponent extends AbstractContainer {
   lists$: Observable<IList[]>;
   tasks$: Observable<ITask[]>;
-  todoSelectedId$: Observable<string>;
+  todoSelectedListId$: Observable<string>;
+  todoSelectedListName$: Observable<string>;
 
   constructor(eventHandlerService: EventHandlerService, store: Store<IState>) {
     super(eventHandlerService);
     this.lists$ = store.pipe(select(fromStore.getTodoEntitiesOrderedArray));
     this.tasks$ = store.pipe(select(fromStore.getTodoSelectedTasks));
-    this.todoSelectedId$ = store.pipe(select(fromStore.getTodoSelectedId));
+    this.todoSelectedListId$ = store.pipe(select(fromStore.getTodoSelectedListId, shareReplay(1)));
+    this.todoSelectedListName$ = store.pipe(select(fromStore.getTodoSelectedListName));
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { Action } from '@ngrx/store';
-import { AuthActions } from '../actions';
+import { AuthActions, TodoActions } from '../actions';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { IUser } from '../../models';
 import { AuthService } from '../../providers/services';
@@ -20,6 +20,13 @@ export class AuthEffects {
           catchError((err: Error) => of(new AuthActions.LoginFailure(err)))
         );
       })
+    );
+
+  @Effect()
+  public init$: Observable<Action> = this.actions$
+    .pipe(
+      ofType(AuthActions.ActionTypes.LOGIN_SUCCESS, AuthActions.ActionTypes.REGISTER_SUCCESS),
+      map(() => new TodoActions.GetAllListsRequest())
     );
 
   @Effect()

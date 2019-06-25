@@ -26,14 +26,36 @@ export class EventHandlerService {
             break;
         }
         break;
-      case 'todo':
+      case 'list':
         switch ($event.action.type) {
+          case 'add':
+            this.store.dispatch(new fromStore.TodoActions.AddNewListRequest($event.action.payload));
+            break;
           case 'select':
             this.store.dispatch(new fromStore.TodoActions.SelectList($event.action.payload));
+            break;
+          case 'removeCompleted':
+            this.store.dispatch(new fromStore.TodoActions.RemoveCompletedTasksRequest($event.action.payload));
             break;
           default:
             break;
         }
+        break;
+      case 'task':
+        switch ($event.action.type) {
+          case 'add':
+            this.store.dispatch(new fromStore.TodoActions.AddTaskRequest($event.action.payload));
+            break;
+          case 'update':
+            this.store.dispatch(new fromStore.TodoActions.UpdateTaskRequest($event.action.payload));
+            break;
+          case 'delete':
+            this.store.dispatch(new fromStore.TodoActions.DeleteTaskRequest($event.action.payload));
+            break;
+          default:
+            break;
+        }
+        break;
       default:
         break;
     }
